@@ -4,168 +4,190 @@
 export type Lang = "en" | "pt";
 type T = Record<Lang, string>;
 
+const REPO = "https://github.com/bruno-florencio/portfolio/tree/main/projects";
+
 export const profile = {
   name: "Bruno Florencio",
-  role: { en: "AI Automation Engineer", pt: "AI Automation Engineer" } as T,
+  photo: "", // ex.: /me.jpg — coloque a foto (quadrada, estilo headshot) em public/
+  role: { en: "Financial Manager & AI Automation Engineer", pt: "Gestor Financeiro & AI Automation Engineer" } as T,
   headline: {
-    en: "I build AI-powered automations and full-stack products that run real businesses.",
-    pt: "Construo automações com IA e produtos full-stack que rodam negócios de verdade.",
-  } as T,
-  subheadline: {
-    en: "Founder of Syntrix. I ship end to end — data pipelines, LLM features, browser agents and SaaS — using AI-assisted development to move at startup speed.",
-    pt: "Fundador do Syntrix. Entrego de ponta a ponta — pipelines de dados, features com LLM, agentes de navegador e SaaS — usando desenvolvimento assistido por IA para entregar em ritmo de startup.",
+    en: "I build cloud-native systems and AI solutions to optimize business workflows.",
+    pt: "Crio sistemas cloud-native e soluções de IA para otimizar os fluxos de trabalho das empresas.",
   } as T,
   location: { en: "Brazil · Remote · Overlaps US hours (ET/CT)", pt: "Brasil · Remoto · Horário compatível com os EUA (ET/CT)" } as T,
-  about: {
-    en: "I sit between business and engineering. My background is in finance — a degree in Financial Management — followed by graduate studies in Data Science and in Full-Stack Development & Cloud Computing. Everything I know about AI, LLMs and agents I taught myself, by building. As a solo founder I designed and shipped Syntrix, a multi-tenant financial SaaS with its own AI agents, and in-house I replaced spreadsheet reporting at an engineering company with a live executive dashboard that syncs itself and writes its own analysis with LLMs. I treat AI as a production tool, not a demo: prompt design, model fallbacks, streaming, auth and cost all matter. I'm looking for remote roles or contracts where I can own automations and AI features end to end.",
-    pt: "Estou entre o negócio e a engenharia. Minha base é financeira — graduação em Gestão Financeira — seguida de pós-graduações em Ciência de Dados e em Desenvolvimento Full-Stack & Cloud Computing. Tudo o que sei de IA, LLMs e agentes aprendi sozinho, construindo. Como fundador solo, projetei e lancei o Syntrix, um SaaS financeiro multi-tenant com agentes de IA próprios, e dentro de uma empresa de engenharia troquei relatórios em planilha por um dashboard executivo que se atualiza sozinho e escreve a própria análise com LLMs. Trato IA como ferramenta de produção, não como demo: design de prompts, fallback entre modelos, streaming, autenticação e custo importam. Busco vagas remotas ou contratos em que eu seja dono de automações e features de IA de ponta a ponta.",
-  } as T,
+  about: [
+    {
+      en: "I combine a background in Financial Management with postgraduate degrees in Data Science and in Full-Stack Development & Cloud Computing. That mix lets me understand where a business loses time and money — and build the software that fixes it.",
+      pt: "Uno a formação em Gestão Financeira com pós-graduações em Ciência de Dados e em Desenvolvimento Full-Stack & Cloud Computing. Essa combinação me permite enxergar onde uma empresa perde tempo e dinheiro — e construir o software que resolve.",
+    },
+    {
+      en: "Self-taught in AI, my passion is applying advanced prompt engineering and AI APIs to remove operational and financial bottlenecks. I founded and built Syntrix, an AI-powered management SaaS, and I ship automations that run in production every day.",
+      pt: "Autodidata em IA, minha paixão é aplicar engenharia de prompt avançada e APIs de IA para eliminar gargalos operacionais e financeiros. Fundei e construí o Syntrix, um SaaS de gestão com IA, e entrego automações que rodam em produção todos os dias.",
+    },
+  ] as T[],
   email: "brunofdalmeida1@gmail.com",
   github: "https://github.com/bruno-florencio",
   linkedin: "https://www.linkedin.com/in/bruno-florencio/",
-  resume: "", // ex.: /resume.pdf (coloque o PDF em public/)
 };
 
-export const stats: { value: string; label: T }[] = [
-  { value: "3", label: { en: "production systems shipped", pt: "sistemas em produção" } },
-  { value: "3", label: { en: "marketplaces automated by browser agents", pt: "marketplaces automatizados por agentes" } },
-  { value: "10+", label: { en: "business modules in one dashboard", pt: "módulos de negócio em um dashboard" } },
-  { value: "Hourly", label: { en: "self-updating data sync", pt: "sincronização automática de dados" } },
-];
+export type ExpertiseIcon = "ai" | "data" | "code" | "finance";
 
-// Adicione "school" (instituição) e "year" quando quiser — campos vazios não aparecem.
-export const education: { degree: T; school: string; year: string }[] = [
-  { degree: { en: "Postgraduate Degree — Full-Stack Development & Cloud Computing", pt: "Pós-graduação — Desenvolvimento Full-Stack e Cloud Computing" }, school: "", year: "" },
-  { degree: { en: "Postgraduate Degree — Data Science", pt: "Pós-graduação — Ciência de Dados" }, school: "", year: "" },
-  { degree: { en: "Associate Degree (Tecnólogo) — Financial Management", pt: "Graduação Tecnológica — Gestão Financeira" }, school: "", year: "" },
-  { degree: { en: "Self-taught — AI, LLMs, prompt engineering and AI agents", pt: "Autodidata — IA, LLMs, engenharia de prompts e agentes de IA" }, school: "", year: "" },
-];
-
-export const skills = [
-  { group: { en: "AI & LLMs", pt: "IA & LLMs" } as T, items: ["Prompt engineering", "LLM integration", "Streaming responses", "Model fallback (Groq → Gemini)", "Claude", "OpenAI", "Gemini", "Claude Code"] },
-  { group: { en: "Automation", pt: "Automação" } as T, items: ["Browser agents (Playwright)", "Telegram & WhatsApp bots", "Scheduled jobs", "ETL: Excel/ERP → Postgres", "Webhooks"] },
-  { group: { en: "Full-stack", pt: "Full-stack" } as T, items: ["React", "Next.js", "Node.js", "TypeScript", "Tailwind", "Serverless APIs"] },
-  { group: { en: "Data & Infra", pt: "Dados & Infra" } as T, items: ["Supabase", "PostgreSQL + RLS", "Supabase Auth / JWT", "Vercel", "GitHub Actions CI/CD", "Oracle Cloud", "Linux VM + PM2"] },
+export const expertise: { icon: ExpertiseIcon; title: T; items: T[] }[] = [
+  {
+    icon: "ai",
+    title: { en: "AI & Automation", pt: "IA & Automação" },
+    items: [
+      { en: "Advanced prompt engineering", pt: "Engenharia de prompt avançada" },
+      { en: "LLM APIs: OpenAI, Anthropic, Gemini, Groq", pt: "APIs de LLM: OpenAI, Anthropic, Gemini, Groq" },
+      { en: "AI agents & assistants", pt: "Agentes e assistentes de IA" },
+      { en: "Browser automation (Playwright)", pt: "Automação de navegador (Playwright)" },
+      { en: "Bots & scheduled workflows", pt: "Bots e fluxos agendados" },
+    ],
+  },
+  {
+    icon: "data",
+    title: { en: "Data & Cloud", pt: "Dados & Cloud" },
+    items: [
+      { en: "Data analytics & BI dashboards", pt: "Análise de dados e dashboards de BI" },
+      { en: "SQL / PostgreSQL", pt: "SQL / PostgreSQL" },
+      { en: "Python for data science", pt: "Python para ciência de dados" },
+      { en: "ETL pipelines (Excel, ERP → database)", pt: "Pipelines ETL (Excel, ERP → banco)" },
+      { en: "Cloud: Supabase, Vercel, Oracle Cloud", pt: "Cloud: Supabase, Vercel, Oracle Cloud" },
+    ],
+  },
+  {
+    icon: "code",
+    title: { en: "Full-Stack Development", pt: "Desenvolvimento Full-Stack" },
+    items: [
+      { en: "React, Next.js, TypeScript", pt: "React, Next.js, TypeScript" },
+      { en: "Node.js & serverless APIs", pt: "Node.js e APIs serverless" },
+      { en: "Multi-tenant SaaS & auth", pt: "SaaS multi-tenant e autenticação" },
+      { en: "Payments integration (Asaas)", pt: "Integração de pagamentos (Asaas)" },
+      { en: "CI/CD with GitHub Actions", pt: "CI/CD com GitHub Actions" },
+    ],
+  },
+  {
+    icon: "finance",
+    title: { en: "Finance", pt: "Finanças" },
+    items: [
+      { en: "Corporate finance", pt: "Finanças corporativas" },
+      { en: "Cash flow management & optimization", pt: "Gestão e otimização de fluxo de caixa" },
+      { en: "Financial reporting (P&L)", pt: "Relatórios financeiros (DRE)" },
+      { en: "SME management systems", pt: "Sistemas de gestão para PMEs" },
+      { en: "ERP integration", pt: "Integração com ERP" },
+    ],
+  },
 ];
 
 export type Project = {
   title: string;
-  kicker: T; // linha curta acima do título
+  kicker: T;
   summary: T;
   problem: T;
   solution: T;
-  impact: T[]; // resultados — use números reais sempre que possível
+  impact: T[];
   stack: string[];
-  link?: string;
-  repo?: string;
-  image?: string; // ex.: /projects/syntrix.png (coloque em public/projects/)
+  link?: string; // Live demo
+  repo?: string; // Estudo de caso no GitHub
+  image?: string; // ex.: /projects/syntrix.png (em public/projects/)
+  flow?: string[]; // ilustração usada quando não há imagem
   featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
-    title: "Syntrix",
-    kicker: { en: "Founder · Multi-tenant SaaS", pt: "Fundador · SaaS multi-tenant" },
+    title: "SYNTRIX.AI",
+    kicker: { en: "Founder · AI-powered SaaS", pt: "Fundador · SaaS com IA" },
     summary: {
-      en: "AI-powered financial and operational management SaaS for small and mid-sized businesses — finance, inventory, point of sale and BI in one platform, with built-in AI agents.",
-      pt: "SaaS de gestão financeira e operacional com IA para pequenas e médias empresas — finanças, estoque, PDV e BI em uma só plataforma, com agentes de IA integrados.",
+      en: "AI-powered financial and operational management SaaS for small and mid-sized businesses.",
+      pt: "SaaS de gestão financeira e operacional com IA para pequenas e médias empresas.",
     },
     problem: {
-      en: "SMBs juggle payables, receivables, cash, inventory and sales across spreadsheets and disconnected tools, so the owner never has a clear, current view of cash flow.",
-      pt: "PMEs controlam contas a pagar, receber, caixa, estoque e vendas em planilhas e ferramentas desconectadas, e o dono nunca tem uma visão clara e atual do fluxo de caixa.",
+      en: "SMBs juggle payables, receivables, cash, inventory and sales across spreadsheets and disconnected tools — the owner never has a clear view of cash flow.",
+      pt: "PMEs controlam contas, caixa, estoque e vendas em planilhas e ferramentas desconectadas — o dono nunca tem uma visão clara do fluxo de caixa.",
     },
     solution: {
-      en: "Designed and built solo: a multi-tenant platform (React + TypeScript on Supabase) covering payables/receivables, bank reconciliation, cash control, credit cards, inventory, POS, commissions and BI dashboards. On top of it run AI agents through server-side LLM proxies — Syn-Advisor (cash-flow insights), Syn-Support (in-app assistant with human handoff), BI narratives and a Sentinel security monitor. Subscriptions are billed through Asaas with webhooks, and an Android app is built with Expo.",
-      pt: "Projetado e construído sozinho: plataforma multi-tenant (React + TypeScript sobre Supabase) com contas a pagar/receber, conciliação bancária, controle de caixa, cartões, estoque, PDV, comissões e dashboards de BI. Sobre ela rodam agentes de IA via proxies de LLM no servidor — Syn-Advisor (insights de fluxo de caixa), Syn-Support (assistente com transbordo para humano), narrativas de BI e o Sentinel de segurança. Assinaturas cobradas pelo Asaas com webhooks, e app Android feito com Expo.",
+      en: "A multi-tenant platform covering finance, bank reconciliation, inventory, POS and BI, with AI agents for cash-flow insights, in-app support, BI narratives and security monitoring.",
+      pt: "Plataforma multi-tenant com finanças, conciliação bancária, estoque, PDV e BI, e agentes de IA para insights de caixa, suporte no app, narrativas de BI e monitoramento de segurança.",
     },
     impact: [
-      { en: "Live in production at syntrix.com.br", pt: "No ar em produção em syntrix.com.br" },
-      { en: "LLM calls routed through Supabase Edge Functions, so API keys never reach the browser", pt: "Chamadas de LLM passam por Edge Functions: as chaves de API nunca chegam ao navegador" },
-      { en: "Owned everything: product, architecture, code and billing", pt: "Responsável por tudo: produto, arquitetura, código e cobrança" },
+      { en: "Live in production, built end to end by one person", pt: "No ar em produção, construído de ponta a ponta por uma pessoa" },
+      { en: "Finance, inventory and POS on one data source — cash flow reflects sales in real time", pt: "Finanças, estoque e PDV na mesma base — o caixa reflete as vendas em tempo real" },
+      { en: "Tenant isolation in the database (RLS); AI keys never reach the browser", pt: "Isolamento por cliente no banco (RLS); chaves de IA nunca chegam ao navegador" },
     ],
-    stack: ["React", "TypeScript", "Supabase", "PostgreSQL RLS", "Edge Functions", "Gemini", "Groq", "Asaas API", "Expo", "Vercel"],
+    stack: ["React", "TypeScript", "Supabase", "PostgreSQL RLS", "Edge Functions", "Gemini", "Groq", "Asaas", "Expo"],
     link: "https://syntrix.com.br",
+    repo: `${REPO}/syntrix`,
     image: "/projects/syntrix.png",
+    featured: true,
+  },
+  {
+    title: "Affiliate Deals Bot",
+    kicker: { en: "Automation · Browser agents", pt: "Automação · Agentes de navegador" },
+    summary: {
+      en: "Autonomous bot that generates affiliate links and posts deals to Telegram and WhatsApp around the clock.",
+      pt: "Robô autônomo que gera links de afiliado e publica ofertas no Telegram e WhatsApp o dia todo.",
+    },
+    problem: {
+      en: "Affiliate channels take hours a day of manual deal hunting and link generation — and Mercado Livre and Shopee have no public API for affiliate links.",
+      pt: "Canais de afiliados exigem horas por dia caçando ofertas e gerando links — e Mercado Livre e Shopee não têm API pública para links de afiliado.",
+    },
+    solution: {
+      en: "Playwright agents operate the Amazon, Mercado Livre and Shopee affiliate portals, and a scheduler publishes formatted posts — deployed to Oracle Cloud on every push.",
+      pt: "Agentes Playwright operam os portais de afiliados da Amazon, Mercado Livre e Shopee, e um agendador publica posts formatados — com deploy na Oracle Cloud a cada push.",
+    },
+    impact: [
+      { en: "~100 automated posts per day, zero manual work", pt: "~100 posts automáticos por dia, zero trabalho manual" },
+      { en: "3 marketplaces and 2 channels running unattended", pt: "3 marketplaces e 2 canais rodando sem intervenção" },
+      { en: "800+ products in the posting queue", pt: "Mais de 800 produtos na fila de postagem" },
+    ],
+    stack: ["Node.js", "Playwright", "Telegram API", "WhatsApp", "Oracle Cloud", "GitHub Actions", "PM2"],
+    repo: `${REPO}/affiliate-deals-bot`,
+    flow: ["Amazon · Mercado Livre · Shopee", "Playwright agents", "Telegram · WhatsApp"],
     featured: true,
   },
   {
     title: "AI Executive Dashboard",
     kicker: { en: "In-house · Cetest Engenharia", pt: "Interno · Cetest Engenharia" },
     summary: {
-      en: "Live executive dashboard that replaced manual spreadsheet reporting and writes its own analysis with LLMs.",
-      pt: "Dashboard executivo que substituiu relatórios manuais em planilha e escreve a própria análise com LLMs.",
+      en: "Self-updating executive dashboard that replaced manual spreadsheet reporting and writes its own analysis with LLMs.",
+      pt: "Dashboard executivo que se atualiza sozinho, substituiu relatórios em planilha e escreve a própria análise com LLMs.",
     },
     problem: {
-      en: "Leadership at an engineering services company depended on scattered Excel files and an ERP to see revenue, cash flow, HR, safety and procurement — reports were slow, manual and always out of date.",
-      pt: "A diretoria de uma empresa de engenharia dependia de planilhas espalhadas e de um ERP para ver faturamento, caixa, RH, segurança e suprimentos — relatórios lentos, manuais e sempre desatualizados.",
+      en: "Leadership relied on scattered Excel files and an ERP; reports were manual and always out of date.",
+      pt: "A diretoria dependia de planilhas espalhadas e de um ERP; relatórios manuais e sempre desatualizados.",
     },
     solution: {
-      en: "Built an ETL pipeline (Excel + Sienge ERP API → Supabase Postgres) that runs hourly on business days, a React dashboard with 10+ modules (P&L, cash flow, billing, HR, payroll, safety, occupational health, procurement), and an AI 'CFO report' that streams an analytical narrative from the live numbers — Groq first, automatic fallback to Gemini.",
-      pt: "Construí um pipeline ETL (Excel + API do ERP Sienge → Postgres no Supabase) que roda de hora em hora em dias úteis, um dashboard React com mais de 10 módulos (DRE, caixa, faturamento, RH, DP, segurança, medicina, suprimentos) e um 'parecer de CFO' por IA que gera uma análise em streaming a partir dos números reais — Groq primeiro, com fallback automático para Gemini.",
+      en: "Hourly ETL from Excel and the Sienge ERP into Supabase, 10+ business modules, and an AI 'CFO report' with Groq → Gemini fallback.",
+      pt: "ETL de hora em hora do Excel e do ERP Sienge para o Supabase, mais de 10 módulos e um 'parecer de CFO' por IA com fallback Groq → Gemini.",
     },
     impact: [
-      { en: "Reporting went from manual and periodic to automatic, every hour", pt: "Relatórios passaram de manuais e periódicos para automáticos, de hora em hora" },
-      { en: "One login-protected source of truth for the whole leadership team", pt: "Uma fonte única e protegida por login para toda a diretoria" },
-      { en: "LLM analysis with provider fallback, so reports keep working if one API is down", pt: "Análise por LLM com fallback entre provedores: continua funcionando se uma API cair" },
+      { en: "Reporting went from manual to automatic, every hour", pt: "Relatórios passaram de manuais para automáticos, de hora em hora" },
+      { en: "One source of truth for the whole leadership team", pt: "Uma fonte única de dados para toda a diretoria" },
     ],
-    stack: ["React", "Vite", "Supabase", "Supabase Auth", "Serverless API", "Groq", "Gemini", "Chart.js", "Sienge ERP API"],
-  },
-  {
-    title: "Affiliate Deals Bot",
-    kicker: { en: "Automation · Browser agents", pt: "Automação · Agentes de navegador" },
-    summary: {
-      en: "Autonomous bot that finds deals, generates affiliate links and posts them to Telegram and WhatsApp around the clock.",
-      pt: "Robô autônomo que encontra ofertas, gera links de afiliado e publica no Telegram e WhatsApp o dia todo.",
-    },
-    problem: {
-      en: "Running affiliate channels means hours a day hunting deals, generating links in each marketplace's portal and posting by hand — and Mercado Livre and Shopee offer no public API for affiliate links.",
-      pt: "Manter canais de afiliados exige horas por dia caçando ofertas, gerando links no portal de cada marketplace e postando à mão — e Mercado Livre e Shopee não oferecem API pública para links de afiliado.",
-    },
-    solution: {
-      en: "Built Playwright browser agents that log into Amazon, Mercado Livre and Shopee affiliate portals, pick products, generate the affiliate link and publish formatted posts to Telegram and WhatsApp. Includes a product queue with CSV import, duplicate-post prevention, a private admin console, and CI/CD to an Oracle Cloud VM (GitHub Actions → SSH → PM2, headed browser under Xvfb).",
-      pt: "Criei agentes de navegador com Playwright que entram nos portais de afiliados da Amazon, Mercado Livre e Shopee, escolhem produtos, geram o link e publicam posts formatados no Telegram e WhatsApp. Inclui fila de produtos com importação de CSV, prevenção de posts repetidos, console admin privado e CI/CD para uma VM na Oracle Cloud (GitHub Actions → SSH → PM2, navegador sob Xvfb).",
-    },
-    impact: [
-      { en: "3 marketplaces and 2 channels running unattended", pt: "3 marketplaces e 2 canais rodando sem intervenção" },
-      { en: "800+ products loaded into the posting queue", pt: "Mais de 800 produtos carregados na fila de postagem" },
-      { en: "~100 automated posts per day (queue every 20 min + campaigns every 45 min)", pt: "~100 posts automáticos por dia (fila a cada 20 min + campanhas a cada 45 min)" },
-      { en: "Push-to-deploy: every commit ships to production automatically", pt: "Deploy a cada push: todo commit vai para produção automaticamente" },
-    ],
-    stack: ["Node.js", "Playwright", "Telegram Bot API", "WhatsApp (Baileys)", "Oracle Cloud", "GitHub Actions", "PM2", "Linux"],
-  },
-];
-
-export const services = [
-  {
-    title: { en: "AI features in your product", pt: "IA dentro do seu produto" } as T,
-    text: { en: "LLM-powered reports, assistants and summaries wired to your real data — with streaming, auth and model fallback.", pt: "Relatórios, assistentes e resumos com LLM ligados aos seus dados reais — com streaming, autenticação e fallback de modelo." } as T,
-  },
-  {
-    title: { en: "Automation & agents", pt: "Automações e agentes" } as T,
-    text: { en: "Browser agents, bots and scheduled pipelines that remove hours of manual work every day.", pt: "Agentes de navegador, bots e pipelines agendados que eliminam horas de trabalho manual por dia." } as T,
-  },
-  {
-    title: { en: "MVPs & internal tools", pt: "MVPs e ferramentas internas" } as T,
-    text: { en: "From idea to a deployed, authenticated app on Supabase + Vercel in weeks, not months.", pt: "Da ideia a um app no ar, com login, em Supabase + Vercel em semanas, não meses." } as T,
+    stack: ["React", "Supabase", "Serverless API", "Groq", "Gemini", "Sienge ERP"],
+    repo: `${REPO}/ai-executive-dashboard`,
+    flow: ["Excel · Sienge ERP", "Hourly ETL → Supabase", "Dashboard + AI CFO report"],
   },
 ];
 
 export const ui = {
-  nav: { about: { en: "About", pt: "Sobre" }, projects: { en: "Work", pt: "Projetos" }, services: { en: "Services", pt: "Serviços" }, contact: { en: "Contact", pt: "Contato" } },
-  cta: { en: "See my work", pt: "Ver projetos" } as T,
-  talk: { en: "Let's work together", pt: "Vamos trabalhar juntos" } as T,
-  resume: { en: "Resume", pt: "Currículo" } as T,
-  featured: { en: "Featured", pt: "Destaque" } as T,
-  visit: { en: "Live site", pt: "Ver site" } as T,
-  code: { en: "Source", pt: "Código" } as T,
+  nav: { about: { en: "About", pt: "Sobre" }, expertise: { en: "Expertise", pt: "Habilidades" }, projects: { en: "Projects", pt: "Projetos" }, contact: { en: "Contact", pt: "Contato" } },
+  viewProjects: { en: "View My Projects", pt: "Ver meus projetos" } as T,
+  connectLinkedIn: { en: "Connect on LinkedIn", pt: "Conectar no LinkedIn" } as T,
+  aboutTitle: { en: "About Me", pt: "Sobre mim" } as T,
+  expertiseTitle: { en: "Core Expertise", pt: "Principais habilidades" } as T,
+  projectsTitle: { en: "Featured Projects", pt: "Projetos em destaque" } as T,
+  moreProjects: { en: "More work", pt: "Outros projetos" } as T,
+  liveDemo: { en: "Live Demo", pt: "Ver ao vivo" } as T,
+  caseStudy: { en: "GitHub Case Study", pt: "Estudo de caso no GitHub" } as T,
   problem: { en: "Problem", pt: "Problema" } as T,
-  solution: { en: "What I built", pt: "O que construí" } as T,
-  impact: { en: "Impact", pt: "Resultado" } as T,
-  skills: { en: "Toolkit", pt: "Ferramentas" } as T,
-  education: { en: "Education", pt: "Formação" } as T,
+  solution: { en: "Solution", pt: "Solução" } as T,
+  impact: { en: "Business Impact", pt: "Impacto no negócio" } as T,
   available: { en: "Open to remote roles & contracts", pt: "Disponível para vagas remotas e contratos" } as T,
+  contactTitle: { en: "Let's work together", pt: "Vamos trabalhar juntos" } as T,
   contactText: {
-    en: "Hiring for AI automation, internal tools or LLM features? I reply within one business day.",
-    pt: "Precisa de automação com IA, ferramentas internas ou features com LLM? Respondo em até um dia útil.",
+    en: "Hiring for AI automation, financial systems or LLM features? I reply within one business day.",
+    pt: "Precisa de automação com IA, sistemas financeiros ou features com LLM? Respondo em até um dia útil.",
   } as T,
 };
