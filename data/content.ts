@@ -17,12 +17,12 @@ export const profile = {
   } as T,
   location: { en: "Brazil · Remote · Overlaps US hours (ET/CT)", pt: "Brasil · Remoto · Horário compatível com os EUA (ET/CT)" } as T,
   about: {
-    en: "I'm a builder who sits between business and engineering. As a solo founder I designed and shipped Syntrix, a multi-tenant financial SaaS, and in-house I replaced spreadsheet reporting at an engineering company with a live executive dashboard that syncs itself and writes its own analysis with LLMs. I treat AI as a production tool, not a demo: prompt design, model fallbacks, streaming, auth and cost all matter. I'm looking for remote roles or contracts where I can own automations and AI features end to end.",
-    pt: "Sou um builder entre o negócio e a engenharia. Como fundador solo, projetei e lancei o Syntrix, um SaaS financeiro multi-tenant, e dentro de uma empresa de engenharia troquei relatórios em planilha por um dashboard executivo que se atualiza sozinho e escreve a própria análise com LLMs. Trato IA como ferramenta de produção, não como demo: design de prompts, fallback entre modelos, streaming, autenticação e custo importam. Busco vagas remotas ou contratos em que eu seja dono de automações e features de IA de ponta a ponta.",
+    en: "I sit between business and engineering. My background is in finance — a degree in Financial Management — followed by graduate studies in Data Science and in Full-Stack Development & Cloud Computing. Everything I know about AI, LLMs and agents I taught myself, by building. As a solo founder I designed and shipped Syntrix, a multi-tenant financial SaaS with its own AI agents, and in-house I replaced spreadsheet reporting at an engineering company with a live executive dashboard that syncs itself and writes its own analysis with LLMs. I treat AI as a production tool, not a demo: prompt design, model fallbacks, streaming, auth and cost all matter. I'm looking for remote roles or contracts where I can own automations and AI features end to end.",
+    pt: "Estou entre o negócio e a engenharia. Minha base é financeira — graduação em Gestão Financeira — seguida de pós-graduações em Ciência de Dados e em Desenvolvimento Full-Stack & Cloud Computing. Tudo o que sei de IA, LLMs e agentes aprendi sozinho, construindo. Como fundador solo, projetei e lancei o Syntrix, um SaaS financeiro multi-tenant com agentes de IA próprios, e dentro de uma empresa de engenharia troquei relatórios em planilha por um dashboard executivo que se atualiza sozinho e escreve a própria análise com LLMs. Trato IA como ferramenta de produção, não como demo: design de prompts, fallback entre modelos, streaming, autenticação e custo importam. Busco vagas remotas ou contratos em que eu seja dono de automações e features de IA de ponta a ponta.",
   } as T,
   email: "brunofdalmeida1@gmail.com",
   github: "https://github.com/bruno-florencio",
-  linkedin: "", // ex.: https://www.linkedin.com/in/seu-usuario
+  linkedin: "https://www.linkedin.com/in/bruno-florencio/",
   resume: "", // ex.: /resume.pdf (coloque o PDF em public/)
 };
 
@@ -31,6 +31,14 @@ export const stats: { value: string; label: T }[] = [
   { value: "3", label: { en: "marketplaces automated by browser agents", pt: "marketplaces automatizados por agentes" } },
   { value: "10+", label: { en: "business modules in one dashboard", pt: "módulos de negócio em um dashboard" } },
   { value: "Hourly", label: { en: "self-updating data sync", pt: "sincronização automática de dados" } },
+];
+
+// Adicione "school" (instituição) e "year" quando quiser — campos vazios não aparecem.
+export const education: { degree: T; school: string; year: string }[] = [
+  { degree: { en: "Postgraduate Degree — Full-Stack Development & Cloud Computing", pt: "Pós-graduação — Desenvolvimento Full-Stack e Cloud Computing" }, school: "", year: "" },
+  { degree: { en: "Postgraduate Degree — Data Science", pt: "Pós-graduação — Ciência de Dados" }, school: "", year: "" },
+  { degree: { en: "Associate Degree (Tecnólogo) — Financial Management", pt: "Graduação Tecnológica — Gestão Financeira" }, school: "", year: "" },
+  { degree: { en: "Self-taught — AI, LLMs, prompt engineering and AI agents", pt: "Autodidata — IA, LLMs, engenharia de prompts e agentes de IA" }, school: "", year: "" },
 ];
 
 export const skills = [
@@ -59,23 +67,25 @@ export const projects: Project[] = [
     title: "Syntrix",
     kicker: { en: "Founder · Multi-tenant SaaS", pt: "Fundador · SaaS multi-tenant" },
     summary: {
-      en: "Financial management SaaS for small and mid-sized businesses — the Brazilian alternative to QuickBooks-style tools.",
-      pt: "SaaS de gestão financeira para pequenas e médias empresas, na linha de Conta Azul e Omie.",
+      en: "AI-powered financial and operational management SaaS for small and mid-sized businesses — finance, inventory, point of sale and BI in one platform, with built-in AI agents.",
+      pt: "SaaS de gestão financeira e operacional com IA para pequenas e médias empresas — finanças, estoque, PDV e BI em uma só plataforma, com agentes de IA integrados.",
     },
     problem: {
-      en: "SMBs juggle payables, receivables, billing and cash flow across spreadsheets and disconnected tools.",
-      pt: "PMEs controlam contas a pagar, receber, cobranças e fluxo de caixa em planilhas e ferramentas desconectadas.",
+      en: "SMBs juggle payables, receivables, cash, inventory and sales across spreadsheets and disconnected tools, so the owner never has a clear, current view of cash flow.",
+      pt: "PMEs controlam contas a pagar, receber, caixa, estoque e vendas em planilhas e ferramentas desconectadas, e o dono nunca tem uma visão clara e atual do fluxo de caixa.",
     },
     solution: {
-      en: "Designed and built solo: a multi-tenant platform with per-tenant data isolation via Postgres Row-Level Security, integrated billing through the Asaas payments API, and separate customer, admin and AI apps on a shared Supabase backend.",
-      pt: "Projetado e construído sozinho: plataforma multi-tenant com isolamento de dados por cliente via Row-Level Security do Postgres, cobrança integrada à API de pagamentos Asaas, e apps separados de cliente, admin e IA sobre um backend Supabase.",
+      en: "Designed and built solo: a multi-tenant platform (React + TypeScript on Supabase) covering payables/receivables, bank reconciliation, cash control, credit cards, inventory, POS, commissions and BI dashboards. On top of it run AI agents through server-side LLM proxies — Syn-Advisor (cash-flow insights), Syn-Support (in-app assistant with human handoff), BI narratives and a Sentinel security monitor. Subscriptions are billed through Asaas with webhooks, and an Android app is built with Expo.",
+      pt: "Projetado e construído sozinho: plataforma multi-tenant (React + TypeScript sobre Supabase) com contas a pagar/receber, conciliação bancária, controle de caixa, cartões, estoque, PDV, comissões e dashboards de BI. Sobre ela rodam agentes de IA via proxies de LLM no servidor — Syn-Advisor (insights de fluxo de caixa), Syn-Support (assistente com transbordo para humano), narrativas de BI e o Sentinel de segurança. Assinaturas cobradas pelo Asaas com webhooks, e app Android feito com Expo.",
     },
     impact: [
       { en: "Live in production at syntrix.com.br", pt: "No ar em produção em syntrix.com.br" },
+      { en: "LLM calls routed through Supabase Edge Functions, so API keys never reach the browser", pt: "Chamadas de LLM passam por Edge Functions: as chaves de API nunca chegam ao navegador" },
       { en: "Owned everything: product, architecture, code and billing", pt: "Responsável por tudo: produto, arquitetura, código e cobrança" },
     ],
-    stack: ["Supabase", "PostgreSQL RLS", "TypeScript", "Node.js", "Asaas API", "Vercel"],
+    stack: ["React", "TypeScript", "Supabase", "PostgreSQL RLS", "Edge Functions", "Gemini", "Groq", "Asaas API", "Expo", "Vercel"],
     link: "https://syntrix.com.br",
+    image: "/projects/syntrix.png",
     featured: true,
   },
   {
@@ -118,6 +128,7 @@ export const projects: Project[] = [
     impact: [
       { en: "3 marketplaces and 2 channels running unattended", pt: "3 marketplaces e 2 canais rodando sem intervenção" },
       { en: "800+ products loaded into the posting queue", pt: "Mais de 800 produtos carregados na fila de postagem" },
+      { en: "~100 automated posts per day (queue every 20 min + campaigns every 45 min)", pt: "~100 posts automáticos por dia (fila a cada 20 min + campanhas a cada 45 min)" },
       { en: "Push-to-deploy: every commit ships to production automatically", pt: "Deploy a cada push: todo commit vai para produção automaticamente" },
     ],
     stack: ["Node.js", "Playwright", "Telegram Bot API", "WhatsApp (Baileys)", "Oracle Cloud", "GitHub Actions", "PM2", "Linux"],
@@ -151,6 +162,7 @@ export const ui = {
   solution: { en: "What I built", pt: "O que construí" } as T,
   impact: { en: "Impact", pt: "Resultado" } as T,
   skills: { en: "Toolkit", pt: "Ferramentas" } as T,
+  education: { en: "Education", pt: "Formação" } as T,
   available: { en: "Open to remote roles & contracts", pt: "Disponível para vagas remotas e contratos" } as T,
   contactText: {
     en: "Hiring for AI automation, internal tools or LLM features? I reply within one business day.",

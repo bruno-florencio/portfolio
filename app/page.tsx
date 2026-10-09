@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { profile, projects, services, skills, stats, ui, type Lang, type Project } from "@/data/content";
+import { education, profile, projects, services, skills, stats, ui, type Lang, type Project } from "@/data/content";
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("en");
@@ -92,6 +92,15 @@ export default function Home() {
         <section id="about" className="scroll-mt-20 border-t border-white/5 py-20">
           <h2 className="mb-6 text-2xl font-semibold text-white">{ui.nav.about[lang]}</h2>
           <p className="max-w-3xl text-lg leading-relaxed text-zinc-400">{profile.about[lang]}</p>
+          <h3 className="mb-4 mt-12 font-mono text-sm uppercase tracking-wider text-zinc-500">{ui.education[lang]}</h3>
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {education.map((e) => (
+              <li key={e.degree.en} className="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
+                <p className="text-sm font-medium text-white">{e.degree[lang]}</p>
+                {(e.school || e.year) && <p className="mt-0.5 text-xs text-zinc-500">{[e.school, e.year].filter(Boolean).join(" · ")}</p>}
+              </li>
+            ))}
+          </ul>
           <h3 className="mb-4 mt-12 font-mono text-sm uppercase tracking-wider text-zinc-500">{ui.skills[lang]}</h3>
           <div className="grid gap-6 sm:grid-cols-2">
             {skills.map((s) => (
