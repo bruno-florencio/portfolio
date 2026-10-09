@@ -70,9 +70,6 @@ Autonomous bot that finds deals, generates affiliate links and posts them to Tel
 
 ---
 
-
----
-
 ## Toolkit
 
 - **AI & LLMs:** prompt engineering, LLM integration, streaming responses, model fallback, Claude, OpenAI, Gemini, Groq, Claude Code
