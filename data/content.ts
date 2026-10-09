@@ -23,7 +23,7 @@ export const profile = {
 export const skills = [
   { group: { pt: "IA & Prompts", en: "AI & Prompts" } as T, items: ["Prompt Engineering", "Claude", "ChatGPT", "Agentes de IA", "RAG", "Claude Code"] },
   { group: { pt: "NoCode / LowCode", en: "NoCode / LowCode" } as T, items: ["n8n", "Make", "Zapier", "Bubble", "FlutterFlow", "Lovable"] },
-  { group: { pt: "Dados & Backend", en: "Data & Backend" } as T, items: ["Supabase", "PostgreSQL", "APIs REST", "Webhooks", "Node.js"] },
+  { group: { pt: "Dados & Backend", en: "Data & Backend" } as T, items: ["Supabase", "PostgreSQL", "APIs REST", "Webhooks", "Node.js", "Playwright"] },
   { group: { pt: "Negócio", en: "Business" } as T, items: ["SaaS", "Pagamentos (Asaas)", "Produto", "Vercel"] },
 ];
 
@@ -56,12 +56,12 @@ export const projects: Project[] = [
     tags: ["E-commerce", "Checkout", "Supabase", "Em construção"],
   },
   {
-    title: "Automação com Agente de IA",
+    title: "Robô Afiliado",
     description: {
-      pt: "EXEMPLO — substitua por um projeto real: agente que atende clientes no WhatsApp e registra pedidos automaticamente.",
-      en: "EXAMPLE — replace with a real project: an agent that handles customers on WhatsApp and logs orders automatically.",
+      pt: "Robô que encontra ofertas na Amazon, Mercado Livre e Shopee, gera o link de afiliado e publica sozinho no Telegram e no WhatsApp. Usa agentes de navegador (Playwright), fila de produtos e painel administrativo privado, com deploy automático na nuvem.",
+      en: "Bot that finds deals on Amazon, Mercado Livre and Shopee, builds the affiliate link and posts automatically to Telegram and WhatsApp. Uses browser agents (Playwright), a product queue and a private admin panel, with automatic cloud deploys.",
     },
-    tags: ["n8n", "WhatsApp", "LLM"],
+    tags: ["Automação", "Playwright", "Telegram", "WhatsApp", "Node.js"],
   },
   {
     title: "Biblioteca de Prompts",
