@@ -4,7 +4,7 @@
 
 Founder of Syntrix. I ship end to end — data pipelines, LLM features, browser agents and SaaS — using AI-assisted development to move at startup speed.
 
-🌐 **Live portfolio:** [brunoflorencio.vercel.app](https://brunoflorencio.vercel.app) · 📧 [brunofdalmeida1@gmail.com](mailto:brunofdalmeida1@gmail.com) · 📍 Brazil · Remote · Overlaps US hours (ET/CT)
+🌐 [brunoflorencio.vercel.app](https://brunoflorencio.vercel.app) · 💼 [LinkedIn](https://www.linkedin.com/in/bruno-florencio/) · 📧 [brunofdalmeida1@gmail.com](mailto:brunofdalmeida1@gmail.com) · 📍 Brazil · Remote · Overlaps US hours (ET/CT)
 
 > Open to remote roles and contracts in AI automation, internal tools and LLM features.
 
@@ -12,61 +12,33 @@ Founder of Syntrix. I ship end to end — data pipelines, LLM features, browser 
 
 ## Selected work
 
-| Project | What it is | Stack |
-|---|---|---|
-| [**Syntrix**](#syntrix) | Multi-tenant financial management SaaS — founder, built solo | Supabase · PostgreSQL RLS · TypeScript · Asaas API |
-| [**AI Executive Dashboard**](#ai-executive-dashboard) | Self-updating executive dashboard with LLM-written analysis | React · Supabase · Groq · Gemini · Sienge ERP |
-| [**Affiliate Deals Bot**](#affiliate-deals-bot) | Browser agents that find deals and post to Telegram/WhatsApp | Node.js · Playwright · Oracle Cloud · GitHub Actions |
+Each project has a full case study: problem vs. solution, core features, architecture diagram, tech stack, business impact and how to run.
+
+### [SYNTRIX.AI →](projects/syntrix/README.md)
+AI-powered financial and operational management SaaS for SMBs — finance, inventory, POS and BI in one multi-tenant platform, with built-in AI agents. **Founder, built solo.** [syntrix.com.br](https://syntrix.com.br)
+
+[![Syntrix](public/projects/syntrix.png)](projects/syntrix/README.md)
+
+`React` `TypeScript` `Supabase` `PostgreSQL RLS` `Edge Functions` `Gemini` `Groq` `Asaas API` `Expo`
+
+### [AI Executive Dashboard →](projects/ai-executive-dashboard/README.md)
+Self-updating executive dashboard that replaced manual spreadsheet reporting at an engineering company. Hourly ETL from Excel and the Sienge ERP, 10+ business modules, and an AI "CFO report" with Groq → Gemini fallback.
+
+`React` `Supabase` `Serverless API` `Groq` `Gemini` `Sienge ERP API` `Chart.js`
+
+### [Affiliate Deals Bot →](projects/affiliate-deals-bot/README.md)
+Playwright browser agents that generate affiliate links on Amazon, Mercado Livre and Shopee and post ~100 deals a day to Telegram and WhatsApp, unattended — deployed to Oracle Cloud via GitHub Actions.
+
+`Node.js` `Playwright` `Telegram Bot API` `WhatsApp (Baileys)` `Oracle Cloud` `GitHub Actions` `PM2`
 
 ---
 
-### Syntrix
-**Founder · Multi-tenant SaaS** · [syntrix.com.br](https://syntrix.com.br)
+## Education
 
-Financial management SaaS for small and mid-sized businesses.
-
-- **Problem:** SMBs juggle payables, receivables, billing and cash flow across spreadsheets and disconnected tools.
-- **What I built:** Designed and built solo — a multi-tenant platform with per-tenant data isolation via Postgres Row-Level Security, integrated billing through the Asaas payments API, and separate customer, admin and AI apps on a shared Supabase backend.
-- **Impact:**
-  - ✅ Live in production at syntrix.com.br
-  - ✅ Owned everything: product, architecture, code and billing
-
-`Supabase` `PostgreSQL RLS` `TypeScript` `Node.js` `Asaas API` `Vercel`
-
----
-
-### AI Executive Dashboard
-**In-house · Cetest Engenharia**
-
-Live executive dashboard that replaced manual spreadsheet reporting and writes its own analysis with LLMs.
-
-- **Problem:** Leadership at an engineering services company depended on scattered Excel files and an ERP to see revenue, cash flow, HR, safety and procurement — reports were slow, manual and always out of date.
-- **What I built:**
-  - An ETL pipeline (Excel + Sienge ERP API → Supabase Postgres) that runs hourly on business days
-  - A React dashboard with 10+ modules: P&L, cash flow, billing, HR, payroll, safety, occupational health, procurement
-  - An AI "CFO report" that streams an analytical narrative from the live numbers — Groq first, automatic fallback to Gemini
-- **Impact:**
-  - ✅ Reporting went from manual and periodic to automatic, every hour
-  - ✅ One login-protected source of truth for the whole leadership team
-  - ✅ LLM analysis with provider fallback, so reports keep working if one API is down
-
-`React` `Vite` `Supabase` `Supabase Auth` `Serverless API` `Groq` `Gemini` `Chart.js` `Sienge ERP API`
-
----
-
-### Affiliate Deals Bot
-**Automation · Browser agents**
-
-Autonomous bot that finds deals, generates affiliate links and posts them to Telegram and WhatsApp around the clock.
-
-- **Problem:** Running affiliate channels means hours a day hunting deals, generating links in each marketplace's portal and posting by hand — and Mercado Livre and Shopee offer no public API for affiliate links.
-- **What I built:** Playwright browser agents that log into Amazon, Mercado Livre and Shopee affiliate portals, pick products, generate the affiliate link and publish formatted posts to Telegram and WhatsApp. Includes a product queue with CSV import, duplicate-post prevention, a private admin console, and CI/CD to an Oracle Cloud VM (GitHub Actions → SSH → PM2, headed browser under Xvfb).
-- **Impact:**
-  - ✅ 3 marketplaces and 2 channels running unattended
-  - ✅ 800+ products loaded into the posting queue
-  - ✅ Push-to-deploy: every commit ships to production automatically
-
-`Node.js` `Playwright` `Telegram Bot API` `WhatsApp (Baileys)` `Oracle Cloud` `GitHub Actions` `PM2` `Linux`
+- 🎓 **Postgraduate Degree — Full-Stack Development & Cloud Computing**
+- 🎓 **Postgraduate Degree — Data Science**
+- 🎓 **Associate Degree (Tecnólogo) — Financial Management**
+- 🤖 **Self-taught in AI** — LLMs, prompt engineering and AI agents, learned by building the projects above
 
 ---
 
@@ -81,11 +53,11 @@ Autonomous bot that finds deals, generates affiliate links and posts them to Tel
 
 ## About this repo
 
-Source code of [brunoflorencio.vercel.app](https://brunoflorencio.vercel.app) — Next.js + Tailwind, bilingual (EN/PT), deployed on Vercel on every push to `main`.
-
-All site content lives in [`data/content.ts`](data/content.ts).
+Source code of [brunoflorencio.vercel.app](https://brunoflorencio.vercel.app) — Next.js + Tailwind, bilingual (EN/PT), deployed on Vercel on every push to `main`. All site content lives in [`data/content.ts`](data/content.ts).
 
 ```bash
+git clone https://github.com/bruno-florencio/portfolio.git
+cd portfolio
 npm install
 npm run dev   # http://localhost:3000
 ```
