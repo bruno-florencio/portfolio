@@ -21,9 +21,9 @@ export const profile = {
 };
 
 export const skills = [
-  { group: { pt: "IA & Prompts", en: "AI & Prompts" } as T, items: ["Prompt Engineering", "Claude", "ChatGPT", "Agentes de IA", "RAG", "Claude Code"] },
+  { group: { pt: "IA & Prompts", en: "AI & Prompts" } as T, items: ["Prompt Engineering", "Claude", "ChatGPT", "Gemini", "Groq", "Agentes de IA", "Claude Code"] },
   { group: { pt: "NoCode / LowCode", en: "NoCode / LowCode" } as T, items: ["n8n", "Make", "Zapier", "Bubble", "FlutterFlow", "Lovable"] },
-  { group: { pt: "Dados & Backend", en: "Data & Backend" } as T, items: ["Supabase", "PostgreSQL", "APIs REST", "Webhooks", "Node.js", "Playwright"] },
+  { group: { pt: "Dados & Backend", en: "Data & Backend" } as T, items: ["Supabase", "PostgreSQL", "React", "APIs REST", "Webhooks", "Node.js", "Playwright"] },
   { group: { pt: "Negócio", en: "Business" } as T, items: ["SaaS", "Pagamentos (Asaas)", "Produto", "Vercel"] },
 ];
 
@@ -64,12 +64,12 @@ export const projects: Project[] = [
     tags: ["Automação", "Playwright", "Telegram", "WhatsApp", "Node.js"],
   },
   {
-    title: "Biblioteca de Prompts",
+    title: "Dashboard Executivo Cetest",
     description: {
-      pt: "EXEMPLO — substitua por um projeto real: coleção de prompts testados para vendas, suporte e conteúdo.",
-      en: "EXAMPLE — replace with a real project: a collection of tested prompts for sales, support and content.",
+      pt: "Dashboard gerencial da Cetest Engenharia: faturamento, fluxo de caixa, DRE, RH, DP, Segurança, Medicina e Suprimentos em um só lugar. Dados sincronizados automaticamente de planilhas e do ERP Sienge para o Supabase, com parecer analítico gerado por IA (Groq/Gemini) direto no painel.",
+      en: "Management dashboard for Cetest Engenharia: revenue, cash flow, P&L, HR, payroll, Safety, Occupational Health and Procurement in one place. Data is synced automatically from spreadsheets and the Sienge ERP into Supabase, with AI-generated analytical reports (Groq/Gemini) right in the dashboard.",
     },
-    tags: ["Prompt Engineering", "Claude", "GPT"],
+    tags: ["Supabase", "React", "IA", "Sienge", "Vercel"],
   },
 ];
 
