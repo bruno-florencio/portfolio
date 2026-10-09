@@ -16,8 +16,7 @@ Founder of Syntrix. I ship end to end — data pipelines, LLM features, browser 
 |---|---|---|
 | [**Syntrix**](#syntrix) | Multi-tenant financial management SaaS — founder, built solo | Supabase · PostgreSQL RLS · TypeScript · Asaas API |
 | [**AI Executive Dashboard**](#ai-executive-dashboard) | Self-updating executive dashboard with LLM-written analysis | React · Supabase · Groq · Gemini · Sienge ERP |
-| [**Affiliate Deals Bot**](#affiliate-deals-bot) | Browser agents that find deals and post to Telegram/WhatsApp | Node.js · Playwright · GitHub Actions · PM2 |
-| [**Commerce & Checkout Platform**](#commerce--checkout-platform) | Storefront platform with a standalone, embeddable checkout | Supabase · RLS · Asaas split payments |
+| [**Affiliate Deals Bot**](#affiliate-deals-bot) | Browser agents that find deals and post to Telegram/WhatsApp | Node.js · Playwright · Oracle Cloud · GitHub Actions |
 
 ---
 
@@ -61,27 +60,16 @@ Live executive dashboard that replaced manual spreadsheet reporting and writes i
 Autonomous bot that finds deals, generates affiliate links and posts them to Telegram and WhatsApp around the clock.
 
 - **Problem:** Running affiliate channels means hours a day hunting deals, generating links in each marketplace's portal and posting by hand — and Mercado Livre and Shopee offer no public API for affiliate links.
-- **What I built:** Playwright browser agents that log into Amazon, Mercado Livre and Shopee affiliate portals, pick products, generate the affiliate link and publish formatted posts to Telegram and WhatsApp. Includes a product queue with CSV import, duplicate-post prevention, a private admin console, and CI/CD to a cloud VM (GitHub Actions → SSH → PM2, headed browser under Xvfb).
+- **What I built:** Playwright browser agents that log into Amazon, Mercado Livre and Shopee affiliate portals, pick products, generate the affiliate link and publish formatted posts to Telegram and WhatsApp. Includes a product queue with CSV import, duplicate-post prevention, a private admin console, and CI/CD to an Oracle Cloud VM (GitHub Actions → SSH → PM2, headed browser under Xvfb).
 - **Impact:**
   - ✅ 3 marketplaces and 2 channels running unattended
   - ✅ 800+ products loaded into the posting queue
   - ✅ Push-to-deploy: every commit ships to production automatically
 
-`Node.js` `Playwright` `Telegram Bot API` `WhatsApp (Baileys)` `GitHub Actions` `PM2` `Linux`
+`Node.js` `Playwright` `Telegram Bot API` `WhatsApp (Baileys)` `Oracle Cloud` `GitHub Actions` `PM2` `Linux`
 
 ---
 
-### Commerce & Checkout Platform
-**In progress · Platform architecture**
-
-Shopify-style storefront platform with a standalone checkout that merchants can embed anywhere.
-
-- **Problem:** Merchants selling physical and digital products need a store and a checkout without stitching together several platforms and payment providers.
-- **What I built:** A multi-tenant architecture where checkout is an independent service (hosted payment link + JS/iframe embed), payments are split automatically between merchant and platform via Asaas marketplace sub-accounts, and no raw card data ever touches our servers.
-- **Impact:**
-  - ✅ Security-first design: tenant isolation with RLS, tokenized payments, KYC on the provider side
-
-`Supabase` `PostgreSQL RLS` `Asaas split payments` `TypeScript`
 
 ---
 
@@ -90,7 +78,7 @@ Shopify-style storefront platform with a standalone checkout that merchants can 
 - **AI & LLMs:** prompt engineering, LLM integration, streaming responses, model fallback, Claude, OpenAI, Gemini, Groq, Claude Code
 - **Automation:** browser agents (Playwright), Telegram & WhatsApp bots, scheduled jobs, ETL (Excel/ERP → Postgres), webhooks
 - **Full-stack:** React, Next.js, Node.js, TypeScript, Tailwind, serverless APIs
-- **Data & infra:** Supabase, PostgreSQL + RLS, Supabase Auth / JWT, Vercel, GitHub Actions CI/CD, Linux VM + PM2
+- **Data & infra:** Supabase, PostgreSQL + RLS, Supabase Auth / JWT, Vercel, Oracle Cloud, GitHub Actions CI/CD, Linux VM + PM2
 
 ---
 

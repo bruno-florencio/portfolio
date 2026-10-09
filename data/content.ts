@@ -27,7 +27,7 @@ export const profile = {
 };
 
 export const stats: { value: string; label: T }[] = [
-  { value: "4", label: { en: "production systems shipped", pt: "sistemas em produção" } },
+  { value: "3", label: { en: "production systems shipped", pt: "sistemas em produção" } },
   { value: "3", label: { en: "marketplaces automated by browser agents", pt: "marketplaces automatizados por agentes" } },
   { value: "10+", label: { en: "business modules in one dashboard", pt: "módulos de negócio em um dashboard" } },
   { value: "Hourly", label: { en: "self-updating data sync", pt: "sincronização automática de dados" } },
@@ -37,7 +37,7 @@ export const skills = [
   { group: { en: "AI & LLMs", pt: "IA & LLMs" } as T, items: ["Prompt engineering", "LLM integration", "Streaming responses", "Model fallback (Groq → Gemini)", "Claude", "OpenAI", "Gemini", "Claude Code"] },
   { group: { en: "Automation", pt: "Automação" } as T, items: ["Browser agents (Playwright)", "Telegram & WhatsApp bots", "Scheduled jobs", "ETL: Excel/ERP → Postgres", "Webhooks"] },
   { group: { en: "Full-stack", pt: "Full-stack" } as T, items: ["React", "Next.js", "Node.js", "TypeScript", "Tailwind", "Serverless APIs"] },
-  { group: { en: "Data & Infra", pt: "Dados & Infra" } as T, items: ["Supabase", "PostgreSQL + RLS", "Supabase Auth / JWT", "Vercel", "GitHub Actions CI/CD", "Linux VM + PM2"] },
+  { group: { en: "Data & Infra", pt: "Dados & Infra" } as T, items: ["Supabase", "PostgreSQL + RLS", "Supabase Auth / JWT", "Vercel", "GitHub Actions CI/CD", "Oracle Cloud", "Linux VM + PM2"] },
 ];
 
 export type Project = {
@@ -112,35 +112,15 @@ export const projects: Project[] = [
       pt: "Manter canais de afiliados exige horas por dia caçando ofertas, gerando links no portal de cada marketplace e postando à mão — e Mercado Livre e Shopee não oferecem API pública para links de afiliado.",
     },
     solution: {
-      en: "Built Playwright browser agents that log into Amazon, Mercado Livre and Shopee affiliate portals, pick products, generate the affiliate link and publish formatted posts to Telegram and WhatsApp. Includes a product queue with CSV import, duplicate-post prevention, a private admin console, and CI/CD to a cloud VM (GitHub Actions → SSH → PM2, headed browser under Xvfb).",
-      pt: "Criei agentes de navegador com Playwright que entram nos portais de afiliados da Amazon, Mercado Livre e Shopee, escolhem produtos, geram o link e publicam posts formatados no Telegram e WhatsApp. Inclui fila de produtos com importação de CSV, prevenção de posts repetidos, console admin privado e CI/CD para uma VM na nuvem (GitHub Actions → SSH → PM2, navegador sob Xvfb).",
+      en: "Built Playwright browser agents that log into Amazon, Mercado Livre and Shopee affiliate portals, pick products, generate the affiliate link and publish formatted posts to Telegram and WhatsApp. Includes a product queue with CSV import, duplicate-post prevention, a private admin console, and CI/CD to an Oracle Cloud VM (GitHub Actions → SSH → PM2, headed browser under Xvfb).",
+      pt: "Criei agentes de navegador com Playwright que entram nos portais de afiliados da Amazon, Mercado Livre e Shopee, escolhem produtos, geram o link e publicam posts formatados no Telegram e WhatsApp. Inclui fila de produtos com importação de CSV, prevenção de posts repetidos, console admin privado e CI/CD para uma VM na Oracle Cloud (GitHub Actions → SSH → PM2, navegador sob Xvfb).",
     },
     impact: [
       { en: "3 marketplaces and 2 channels running unattended", pt: "3 marketplaces e 2 canais rodando sem intervenção" },
       { en: "800+ products loaded into the posting queue", pt: "Mais de 800 produtos carregados na fila de postagem" },
       { en: "Push-to-deploy: every commit ships to production automatically", pt: "Deploy a cada push: todo commit vai para produção automaticamente" },
     ],
-    stack: ["Node.js", "Playwright", "Telegram Bot API", "WhatsApp (Baileys)", "GitHub Actions", "PM2", "Linux"],
-  },
-  {
-    title: "Commerce & Checkout Platform",
-    kicker: { en: "In progress · Platform architecture", pt: "Em construção · Arquitetura de plataforma" },
-    summary: {
-      en: "Shopify-style storefront platform with a standalone checkout that merchants can embed anywhere.",
-      pt: "Plataforma de lojas no estilo Shopify com checkout independente que o lojista pode usar em qualquer site.",
-    },
-    problem: {
-      en: "Brazilian merchants selling physical and digital products need a store and a checkout without stitching together several platforms and payment providers.",
-      pt: "Lojistas que vendem produtos físicos e digitais precisam de loja e checkout sem juntar várias plataformas e meios de pagamento.",
-    },
-    solution: {
-      en: "Architected a multi-tenant platform where checkout is an independent service (hosted payment link + JS/iframe embed), payments are split automatically between merchant and platform via Asaas marketplace sub-accounts, and no raw card data ever touches our servers.",
-      pt: "Arquitetei uma plataforma multi-tenant em que o checkout é um serviço independente (link de pagamento + embed JS/iframe), os pagamentos são divididos automaticamente entre lojista e plataforma via subcontas Asaas, e nenhum dado de cartão passa pelos nossos servidores.",
-    },
-    impact: [
-      { en: "Security-first design: tenant isolation with RLS, tokenized payments, KYC on the provider side", pt: "Segurança desde o início: isolamento por RLS, pagamentos tokenizados, KYC no provedor" },
-    ],
-    stack: ["Supabase", "PostgreSQL RLS", "Asaas split payments", "TypeScript"],
+    stack: ["Node.js", "Playwright", "Telegram Bot API", "WhatsApp (Baileys)", "Oracle Cloud", "GitHub Actions", "PM2", "Linux"],
   },
 ];
 
